@@ -136,62 +136,110 @@ class LayoutPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Home'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.only(top: 11.0),
-        child: ListView.builder(
-          itemCount: mData.length,
-            itemBuilder: (context, index){
-            print(index);
-              return Card(
-              child: Container(
-                margin: EdgeInsets.only(left: 11, right: 11, bottom: 11),
-                width: double.infinity,
-                height: 70,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(11),
-                ),
-                child: Row(
-                  children: [
-                    Container(
-                      width: 50,
-                      height: 50,
-                      decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          image: DecorationImage(image: NetworkImage(mData[index]['imgUrl']), fit: BoxFit.cover)
-                      ),
-                    ),
-                    SizedBox(width: 11,),
-                    Expanded(child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(mData[index]['name'], style: TextStyle(fontSize: 16, color: Colors.black),),
-                        Text(mData[index]['msg'], style: TextStyle(fontSize: 12, color: Colors.black54),),
-                      ],
-                    )),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(mData[index]['time'], style: TextStyle(fontSize: 14, color: Colors.green),),
-                        Container(
-                          width: 20,
-                            height: 20,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Colors.green
-                            ),
-                            child: Center(child: Text(mData[index]['unreadCount'].toString(), style: TextStyle(fontSize: 12, color: Colors.white),))),
-                      ],
-                    )
-                  ],
-                ),
-              ),
-            );
-            }),
+      body: GridView(
+          gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+              maxCrossAxisExtent: 150,
+            ///250:167
+              childAspectRatio: 2/1,
+            mainAxisSpacing: 11,
+            crossAxisSpacing: 11,
+          ),
+          children: [
+            Container(
+              color: Colors.green,
+            ),
+            Container(
+              color: Colors.purple,
+            ),
+            Container(
+              color: Colors.yellow,
+            ),
+            Container(
+              color: Colors.blue,
+            ),
+            Container(
+              color: Colors.amber,
+            ),
+            Container(
+              color: Colors.pink,
+            ),
+            Container(
+              color: Colors.purple,
+            ),
+            Container(
+              color: Colors.yellow,
+            ),
+            Container(
+              color: Colors.blue,
+            ),
+            Container(
+              color: Colors.red,
+            ),
+            Container(
+              color: Colors.brown,
+            ),
+            Container(
+              color: Colors.pink,
+            ),
+          ],
       ),
     );
   }
 }
+
+///Padding(
+//         padding: const EdgeInsets.only(top: 11.0),
+//         child: ListView.builder(
+//           itemCount: mData.length,
+//             itemBuilder: (context, index){
+//             print(index);
+//               return Card(
+//               child: Container(
+//                 margin: EdgeInsets.only(left: 11, right: 11, bottom: 11),
+//                 width: double.infinity,
+//                 height: 70,
+//                 decoration: BoxDecoration(
+//                   borderRadius: BorderRadius.circular(11),
+//                 ),
+//                 child: Row(
+//                   children: [
+//                     Container(
+//                       width: 50,
+//                       height: 50,
+//                       decoration: BoxDecoration(
+//                           shape: BoxShape.circle,
+//                           image: DecorationImage(image: NetworkImage(mData[index]['imgUrl']), fit: BoxFit.cover)
+//                       ),
+//                     ),
+//                     SizedBox(width: 11,),
+//                     Expanded(child: Column(
+//                       mainAxisAlignment: MainAxisAlignment.center,
+//                       crossAxisAlignment: CrossAxisAlignment.start,
+//                       children: [
+//                         Text(mData[index]['name'], style: TextStyle(fontSize: 16, color: Colors.black),),
+//                         Text(mData[index]['msg'], style: TextStyle(fontSize: 12, color: Colors.black54),),
+//                       ],
+//                     )),
+//                     Column(
+//                       mainAxisAlignment: MainAxisAlignment.center,
+//                       children: [
+//                         Text(mData[index]['time'], style: TextStyle(fontSize: 14, color: Colors.green),),
+//                         Container(
+//                           width: 20,
+//                             height: 20,
+//                             decoration: BoxDecoration(
+//                               shape: BoxShape.circle,
+//                               color: Colors.green
+//                             ),
+//                             child: Center(child: Text(mData[index]['unreadCount'].toString(), style: TextStyle(fontSize: 12, color: Colors.white),))),
+//                       ],
+//                     )
+//                   ],
+//                 ),
+//               ),
+//             );
+//             }),
+//       )
 
 ///ListView(
 //           children: mData.map((element){
